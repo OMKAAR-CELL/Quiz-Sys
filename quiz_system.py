@@ -1,5 +1,41 @@
 from tkinter import *
+from tkinter import messagebox
+import pandas as pd
 
+def add_user():
+    username = signup_username_ent.get().strip()
+    password = signup_password_ent.get().strip()
+
+    if not username or not password:
+        messagebox.showwarning('Fill the fields', 'Please enter both username and password.')
+        return
+
+    if username in user_pass_data['username'].values:
+        messagebox.showinfo('Username already exists', f"Username '{username}' is already taken. Please choose a different one.")
+    else:
+        user_pass_data.loc[len(user_pass_data)] = [username, password]
+        user_pass_data.to_csv('Quiz-Sys/users.csv', index=False)
+        signup_username_ent.delete(0, END)
+        signup_password_ent.delete(0, END)
+        messagebox.showinfo('Success', 'User registered successfully!')
+        show_frame(Login)
+
+def login_user():
+    username = login_username_ent.get().strip()
+    password = login_password_ent.get().strip()
+
+    if not username or not password:
+        messagebox.showwarning('Fill the fields', 'Please enter both username and password.')
+        return
+    
+    user_row = user_pass_data[user_pass_data['username'] == username]
+    if not user_row.empty and user_row.iloc[0]['password'] == password:
+        messagebox.showinfo('Success', 'Login successful!')
+        show_frame(Declar)
+    else:
+        messagebox.showwarning('login failed','please enter correct username and password')
+    
+user_pass_data=pd.read_csv('Quiz-Sys/users.csv')
 # List of subjects for the quiz
 quiz_subjects = [
     "General Knowledge",
@@ -97,7 +133,8 @@ signup_password_txt.pack(pady=(25,0),padx=(250,0),anchor="w")
 signup_password_ent=Entry(
     Signup,
     width=20,
-    font=(fon,22)
+    font=(fon,22),
+    show="*"
 )
 signup_password_ent.pack(pady=(13,10),padx=0)
 
@@ -107,7 +144,7 @@ subm_btn=Button(
     bg="#5582BE",
     width=20,
     font=(fon,20),
-    command=lambda :show_frame(Declar)
+    command=lambda :add_user()
 )
 subm_btn.pack(pady=(20,90))
 
@@ -176,7 +213,7 @@ sub_btn=Button(
     bg="#5582BE",
     width=20,
     font=(fon,20),
-    command=lambda :show_frame(Declar)
+    command=lambda :login_user()
 )
 sub_btn.pack(pady=(20,90))
 
