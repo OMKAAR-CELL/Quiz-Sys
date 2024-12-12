@@ -2,7 +2,10 @@ from tkinter import *
 from tkinter import messagebox
 import pandas as pd
 
+
+username=NONE
 def add_user():
+    global username
     username = signup_username_ent.get().strip()
     password = signup_password_ent.get().strip()
 
@@ -21,6 +24,7 @@ def add_user():
         show_frame(Login)
 
 def login_user():
+    global username
     username = login_username_ent.get().strip()
     password = login_password_ent.get().strip()
 
@@ -34,8 +38,100 @@ def login_user():
         show_frame(Declar)
     else:
         messagebox.showwarning('login failed','please enter correct username and password')
+         
     
-user_pass_data=pd.read_csv('Quiz-Sys/users.csv')
+def increase_qno():
+    global qno
+    qno+=1
+
+
+def Show_Question(id):
+    global qno
+    global globalid
+    global section_question
+    
+    globalid = id  # Update the global ID for the subject
+
+    # Filter questions for the selected subject
+    section_question = questions_data[questions_data['Subject'] == id].sample(10).reset_index(drop=True)
+
+    # Check if `qno` is within valid range
+    question_text = f"{qno}. {section_question.loc[qno - 1, 'Question']}"
+    Question_label.configure(text=question_text)
+
+            # Update options
+    opt1.configure(text=section_question.loc[qno - 1, "OptionA"])
+    opt2.configure(text=section_question.loc[qno - 1, "OptionB"])
+    opt3.configure(text=section_question.loc[qno - 1, "OptionC"])
+    opt4.configure(text=section_question.loc[qno - 1, "OptionD"])
+       
+def show_stats():
+    Stats_label.config(text=f"Congrats {username} for completing this Quiz!!!")
+    show_frame(Stats) 
+        
+def show_Questions_forcont():
+    global qno
+    global section_question
+    
+    if qno<=len(section_question):
+        question_text = f"{qno}. {section_question.loc[qno - 1, 'Question']}"
+        Question_label.configure(text=question_text)
+
+                # Update options
+        opt1.configure(text=section_question.loc[qno - 1, "OptionA"])
+        opt2.configure(text=section_question.loc[qno - 1, "OptionB"])
+        opt3.configure(text=section_question.loc[qno - 1, "OptionC"])
+        opt4.configure(text=section_question.loc[qno - 1, "OptionD"])
+        
+        opt1.configure(bg='#2eff70')
+        opt2.configure(bg='#2eff70')
+        opt3.configure(bg='#2eff70')
+        opt4.configure(bg='#2eff70')
+    else:
+        show_stats()
+        
+    
+    
+def check(opt):
+    global res
+    global section_question
+    global score
+    section_ans=section_question
+    if opt==section_ans.loc[qno-1,'Correct_Option']:
+        res=1    
+    else:
+        res=0 
+        
+def color_button(p):
+    if p=='A':
+        opt1.configure(bg='red')
+        opt2.configure(bg='#2eff70')
+        opt3.configure(bg='#2eff70')
+        opt4.configure(bg='#2eff70')
+    elif p=='B':
+        opt1.configure(bg='#2eff70')
+        opt2.configure(bg='red')
+        opt3.configure(bg='#2eff70')
+        opt4.configure(bg='#2eff70')
+    elif p=='C':
+        opt1.configure(bg='#2eff70')
+        opt2.configure(bg='#2eff70')
+        opt3.configure(bg='red')
+        opt4.configure(bg='#2eff70')
+    elif p=='D':
+        opt1.configure(bg='#2eff70')
+        opt2.configure(bg='#2eff70')
+        opt3.configure(bg='#2eff70')
+        opt4.configure(bg='red')
+    
+       
+def score_add():
+    global score
+    score+=res 
+    score_label.config(text=f"Score: {score}")
+    
+user_pass_data=pd.read_csv('users.csv')
+questions_data=pd.read_csv('question_content.csv')
 # List of subjects for the quiz
 quiz_subjects = [
     "General Knowledge",
@@ -55,6 +151,10 @@ quiz_subjects = [
 
 
 qno=1
+globalid=NONE
+score=0
+section_question=NONE
+res=NONE
 
 
 fon="vendana"
@@ -70,8 +170,9 @@ Login = Frame(root, background="#E9EDF1")
 Signup = Frame(root, background="#E9EDF1")
 Declar = Frame(root, background="#E9EDF1")
 Question = Frame(root, background="#E9EDF1")
+Stats=Frame(root,background='#E9EDF1')
 
-for frame in (Welcome, Signup, Login,Declar,Question):
+for frame in (Welcome, Signup, Login,Declar,Question,Stats):
     frame.grid(row=0, column=0, sticky="nsew")
 
 def show_frame(frame):
@@ -258,10 +359,10 @@ btn2.grid(row=0, column=1, padx=20, pady=30)
 btn3 = Button(btnframe1, text=str(quiz_subjects[2]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
 btn3.grid(row=0, column=2, padx=20, pady=30)
 
-btn4 = Button(btnframe1, text=str(quiz_subjects[3]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn4 = Button(btnframe1, text=str(quiz_subjects[3]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('History')))
 btn4.grid(row=1, column=0, padx=20, pady=30)
 
-btn5 = Button(btnframe1, text=str(quiz_subjects[4]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn5 = Button(btnframe1, text=str(quiz_subjects[4]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Geography')))
 btn5.grid(row=1, column=1, padx=20, pady=30)
 
 btn6 = Button(btnframe1, text=str(quiz_subjects[5]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
@@ -289,23 +390,36 @@ btn12.grid(row=3, column=2, padx=20, pady=30)
 
 
 #Question 
-Question_label=Label(Question,text=str(qno)+". Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt temporibus quisquam iusto minima veniam quae, sed corporis adipisci suscipit quibusdam",bg='#E9EDF1',font=(fon,22),wraplength=900,justify="left")
+Question_label=Label(Question,text=str(qno)+"",bg='#E9EDF1',font=(fon,22),wraplength=900,justify="left")
 Question_label.pack(anchor='w',padx=(4,6),pady=(10,5))
+
+score_label=Label(Question,text=("Score: "+str(score)),bg="#E9EDF1",font=(fon,18))
+score_label.pack(anchor='e')
 
 optionframe=Frame(Question,bg="#E9EDF1")
 optionframe.pack(padx=(120,0),anchor='w',pady=(120,0))
 
-opt1=Button(optionframe,text="Option 1",font=(fon,18),width=17)
+opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('A'),color_button('A')))
 opt1.grid(row=0,column=0)
 
-opt2=Button(optionframe,text="Option 2",font=(fon,18),width=17)
+opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('B'),color_button('B')))
 opt2.grid(row=0,column=2,padx=(120,0))
 
-opt3=Button(optionframe,text="Option 3",font=(fon,18),width=17)
+opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('C'),color_button('C')))
 opt3.grid(row=1,column=0,pady=(45,0))
 
-opt4=Button(optionframe,text="Option 4",font=(fon,18),width=17)
+opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('D'),color_button('D')))
 opt4.grid(row=1,column=2,padx=(120,0),pady=(45,0))
+
+submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",command=lambda :(increase_qno(),show_Questions_forcont(),score_add()))
+submitbtn.pack(anchor="s",pady=(50))
+
+
+
+#stats
+Stats_label=Label(Stats,text="",fon=(fon,34),bg="#E9EDF1")
+Stats_label.pack()
+
 
 
 root.mainloop()

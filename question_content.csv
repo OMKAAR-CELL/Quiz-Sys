@@ -1,0 +1,31 @@
+Subject,Question_ID,Question,OptionA,OptionB,OptionC,OptionD,Correct_Option
+History,HIS01,Who was the first President of the United States?,George Washington,Thomas Jefferson,Abraham Lincoln,John Adams,A
+History,HIS02,What year did World War II begin?,1939,1941,1938,1945,A
+History,HIS03,Who was the king during the French Revolution?,Louis XIV,Louis XVI,Henry IV,Charles X,B
+History,HIS04,What was the name of the ship that brought the Pilgrims to America?,Santa Maria,Mayflower,Endeavour,Discovery,B
+History,HIS05,Who discovered the Americas in 1492?,Christopher Columbus,Marco Polo,Vasco da Gama,Ferdinand Magellan,A
+History,HIS06,What empire was ruled by Genghis Khan?,Roman Empire,Mongol Empire,Ottoman Empire,Persian Empire,B
+History,HIS07,Which war ended with the Treaty of Versailles?,World War I,World War II,Seven Years War,American Civil War,A
+History,HIS08,Who was known as the Iron Lady?,Margaret Thatcher,Indira Gandhi,Golda Meir,Hillary Clinton,A
+History,HIS09,What is the ancient Egyptian writing system called?,Cuneiform,Hieroglyphics,Sanskrit,Latin,B
+History,HIS10,Which ancient city was buried under volcanic ash in 79 AD?,Pompeii,Herculaneum,Alexandria,Sparta,A
+History,HIS11,What was the main cause of the American Civil War?,Slavery,Religion,Land disputes,Trade policies,A
+History,HIS12,Who was the first Emperor of Rome?,Julius Caesar,Augustus,Nero,Caligula,B
+History,HIS13,What year did the Berlin Wall fall?,1989,1991,1987,1990,A
+History,HIS14,Who was the leader of the Soviet Union during World War II?,Vladimir Lenin,Joseph Stalin,Nikita Khrushchev,Leon Trotsky,B
+History,HIS15,What was the original purpose of the Great Wall of China?,Trade,Defense,Tourism,Ceremony,B
+Geography,GEO01,What is the largest desert in the world?,Sahara,Antarctica,Arctic,Gobi,B
+Geography,GEO02,What is the longest river in the world?,Amazon,Nile,Mississippi,Yangtze,B
+Geography,GEO03,Which country has the most natural lakes?,Canada,Russia,Brazil,United States,A
+Geography,GEO04,What is the capital of Australia?,Sydney,Melbourne,Canberra,Brisbane,C
+Geography,GEO05,Which continent is known as the "Dark Continent"?,Africa,Asia,South America,Europe,A
+Geography,GEO06,What is the smallest country in the world?,Monaco,San Marino,Vatican City,Liechtenstein,C
+Geography,GEO07,What is the highest mountain in the world?,K2,Mount Everest,Mount Kilimanjaro,Mount McKinley,B
+Geography,GEO08,Which ocean is the largest?,Atlantic,Pacific,Indian,Southern,B
+Geography,GEO09,Which country is known as the Land of the Rising Sun?,China,Thailand,Japan,South Korea,C
+Geography,GEO10,What is the longest mountain range in the world?,Himalayas,Andes,Rockies,Alps,B
+Geography,GEO11,What is the capital city of Canada?,Toronto,Vancouver,Ottawa,Montreal,C
+Geography,GEO12,Which US state is known as the "Sunshine State"?,California,Florida,Texas,Hawaii,B
+Geography,GEO13,What is the official currency of Japan?,Yen,Won,Ringgit,Baht,A
+Geography,GEO14,What river flows through Paris?,Thames,Seine,Danube,Rhine,B
+Geography,GEO15,Which is the only continent without an active volcano?,Australia,Antarctica,Europe,Africa,A
