@@ -211,7 +211,30 @@ def exit():
     root.destroy()
     
 
-    
+def restart():
+    global qno, score, section_question, res, username, globalid
+
+    # Reset all necessary global variables
+    qno = 1
+    score = 0
+    section_question = None
+    res = None
+    globalid = None
+
+    # Reset the score label and question display
+    score_label.config(text=f"Score: {score}")
+    Question_label.config(text="")
+
+    # Reset the options buttons
+    opt1.config(bg="#2eff70", text="")
+    opt2.config(bg="#2eff70", text="")
+    opt3.config(bg="#2eff70", text="")
+    opt4.config(bg="#2eff70", text="")
+
+    # Reset the submit button
+    submitbtn.config(state=NORMAL)
+
+    show_frame(Declar)
 
 
     
@@ -530,8 +553,12 @@ barbtn.grid(row=0,column=0,padx=(7,9),pady=(0,10))
 linebtn=Button(graphbtn_frame,text='View your progress in each subject',font=(fon,14),command=lambda :(show_frame(SProgress)))
 linebtn.grid(row=1,column=0,padx=(7,9),pady=(5,8))
 
+restartbtn=Button(graphbtn_frame,text='Back',font=(fon,14),command=lambda :restart())
+restartbtn.grid(row=2,column=0,padx=(7,9),pady=(5,8))
+
 exitbtn=Button(graphbtn_frame,text='exit',font=(fon,14),command=lambda: exit())
-exitbtn.grid(row=2,column=0,padx=(7,9),pady=(5,8))
+exitbtn.grid(row=3,column=0,padx=(7,9),pady=(5,8))
+
 
 
 #Barchart
