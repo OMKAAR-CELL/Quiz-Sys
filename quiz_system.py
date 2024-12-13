@@ -1,9 +1,55 @@
 from tkinter import *
 from tkinter import messagebox
 import pandas as pd
-
+import matplotlib.pyplot as plt
+from PIL import Image,ImageTk
 
 username=NONE
+
+def get_length(df,sub,user):
+    id_df=df[(df['Subject']==sub) & (df['Username']==user)]
+    length=len(id_df)
+    ls=[j for j in range(1,length+1)]
+    return ls
+
+def get_subject(df,sub,user):
+    Scoredf=df[(df['Subject']==sub) & (df['Username']==user)]
+    Scoredf=Scoredf['Score']
+    
+    return Scoredf
+    
+
+def get_max(ls, df, user):
+    results = []
+    for index in range(len(ls)):
+        Sub_max = df[(df['Subject'] == ls[index]) & (df['Username'] == user)]
+        if not Sub_max.empty:
+            results.append(max(Sub_max['Score']))
+        else:
+            results.append(0)  # Default score if no matching records
+    return results
+    
+def create_piechart(score):
+    plt.pie([score,10-score],labels=["Right","Wrong"])
+    plt.legend()
+    plt.savefig('piechart')
+    plt.close()
+
+def create_barchart(quiz_subjects,user_progress_data,username):
+    sub=["G.K","Science","Maths","History","Geo","Lit.","Tech","Sports","Ent.","Mytho","C.A","Pop Cul."]
+    plt.barh(sub,get_max(quiz_subjects,user_progress_data,username))
+    plt.yticks(fontsize=8)
+    plt.ylabel('Subjects')
+    plt.xlabel('Maximum Score')
+    plt.savefig('Barchart')
+    plt.close()
+    
+def create_linechart(subject,user_progress_data,username):
+    plt.plot(get_length(user_progress_data, subject, username), get_subject(user_progress_data, subject, username), label=subject)
+    plt.legend()
+    plt.savefig('LineChart')
+    plt.close()
+
 def add_user():
     global username
     username = signup_username_ent.get().strip()
@@ -17,7 +63,7 @@ def add_user():
         messagebox.showinfo('Username already exists', f"Username '{username}' is already taken. Please choose a different one.")
     else:
         user_pass_data.loc[len(user_pass_data)] = [username, password]
-        user_pass_data.to_csv('Quiz-Sys/users.csv', index=False)
+        user_pass_data.to_csv('users.csv', index=False)
         signup_username_ent.delete(0, END)
         signup_password_ent.delete(0, END)
         messagebox.showinfo('Success', 'User registered successfully!')
@@ -59,14 +105,20 @@ def Show_Question(id):
     question_text = f"{qno}. {section_question.loc[qno - 1, 'Question']}"
     Question_label.configure(text=question_text)
 
-            # Update options
+    # Update options
     opt1.configure(text=section_question.loc[qno - 1, "OptionA"])
     opt2.configure(text=section_question.loc[qno - 1, "OptionB"])
     opt3.configure(text=section_question.loc[qno - 1, "OptionC"])
     opt4.configure(text=section_question.loc[qno - 1, "OptionD"])
        
 def show_stats():
+    global pie
     Stats_label.config(text=f"Congrats {username} for completing this Quiz!!!")
+    Final_score_label.configure(text=f"Score: {score}")
+    pie=Image.open('piechart.png')
+    pie = pie.resize((400, 400))
+    pie = ImageTk.PhotoImage(pie)
+    piechart_label.config(image=pie,bg='#E9EDF1')
     show_frame(Stats) 
         
 def show_Questions_forcont():
@@ -88,6 +140,7 @@ def show_Questions_forcont():
         opt3.configure(bg='#2eff70')
         opt4.configure(bg='#2eff70')
     else:
+        Progress_recorded()
         show_stats()
         
     
@@ -127,11 +180,44 @@ def color_button(p):
        
 def score_add():
     global score
-    score+=res 
+    score+=int(res)
     score_label.config(text=f"Score: {score}")
+    
+def Progress_recorded():
+    global username, score, globalid, user_progress_data, quiz_subjects
+    new_row = pd.DataFrame([[username, score, globalid]], columns=["Username", "Score", "Subject"])
+    user_progress_data = pd.concat([user_progress_data, new_row], ignore_index=True)
+    user_progress_data.to_csv('user_progress.csv', index=False)
+    create_piechart(score)
+    create_barchart(quiz_subjects,user_progress_data,username)
+    
+def bargraph_show():
+    global bargraph
+    bargraph=Image.open('Barchart.png')
+    bargraph = bargraph.resize((400, 400))
+    bargraph = ImageTk.PhotoImage(bargraph)
+    Barchart_Image.config(image=bargraph)
+    
+def show_graph(pid):
+    global username,user_progress_data,Linegraph
+    create_linechart(pid,user_progress_data,username)
+    Linegraph=Image.open('LineChart.png')
+    Linegraph = Linegraph.resize((400, 400))
+    Linegraph = ImageTk.PhotoImage(Linegraph)
+    Linegraph_Image.config(image=Linegraph)
+    
+    
+def exit():
+    root.destroy()
+    
+
+    
+
+
     
 user_pass_data=pd.read_csv('users.csv')
 questions_data=pd.read_csv('question_content.csv')
+user_progress_data=pd.read_csv('user_progress.csv')
 # List of subjects for the quiz
 quiz_subjects = [
     "General Knowledge",
@@ -156,6 +242,9 @@ score=0
 section_question=NONE
 res=NONE
 
+pie=None
+bar=None
+line=None
 
 fon="vendana"
 root = Tk()
@@ -170,9 +259,12 @@ Login = Frame(root, background="#E9EDF1")
 Signup = Frame(root, background="#E9EDF1")
 Declar = Frame(root, background="#E9EDF1")
 Question = Frame(root, background="#E9EDF1")
-Stats=Frame(root,background='#E9EDF1')
+Stats=Frame(root)
+Barchart=Frame(root)
+SProgress=Frame(root,background="#E9EDF1")
+LinegraphFrame=Frame(root)
 
-for frame in (Welcome, Signup, Login,Declar,Question,Stats):
+for frame in (Welcome, Signup, Login,Declar,Question,Stats,Barchart,SProgress,LinegraphFrame):
     frame.grid(row=0, column=0, sticky="nsew")
 
 def show_frame(frame):
@@ -350,13 +442,13 @@ btnframe1 = Frame(Declar, bg="#E9EDF1")
 btnframe1.pack(pady=(70, 0))
 
 # Buttons with symmetrical distance using grid
-btn1 = Button(btnframe1, text=str(quiz_subjects[0]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn1 = Button(btnframe1, text=str(quiz_subjects[0]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('General Knowledge')))
 btn1.grid(row=0, column=0, padx=20, pady=30)
 
-btn2 = Button(btnframe1, text=str(quiz_subjects[1]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn2 = Button(btnframe1, text=str(quiz_subjects[1]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Science')))
 btn2.grid(row=0, column=1, padx=20, pady=30)
 
-btn3 = Button(btnframe1, text=str(quiz_subjects[2]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn3 = Button(btnframe1, text=str(quiz_subjects[2]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Mathematics')))
 btn3.grid(row=0, column=2, padx=20, pady=30)
 
 btn4 = Button(btnframe1, text=str(quiz_subjects[3]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('History')))
@@ -365,25 +457,25 @@ btn4.grid(row=1, column=0, padx=20, pady=30)
 btn5 = Button(btnframe1, text=str(quiz_subjects[4]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Geography')))
 btn5.grid(row=1, column=1, padx=20, pady=30)
 
-btn6 = Button(btnframe1, text=str(quiz_subjects[5]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn6 = Button(btnframe1, text=str(quiz_subjects[5]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Literature')))
 btn6.grid(row=1, column=2, padx=20, pady=30)
 
-btn7 = Button(btnframe1, text=str(quiz_subjects[6]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn7 = Button(btnframe1, text=str(quiz_subjects[6]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Technology')))
 btn7.grid(row=2, column=0, padx=20, pady=30)
 
-btn8 = Button(btnframe1, text=str(quiz_subjects[7]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn8 = Button(btnframe1, text=str(quiz_subjects[7]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Sports')))
 btn8.grid(row=2, column=1, padx=20, pady=30)
 
-btn9 = Button(btnframe1, text=str(quiz_subjects[8]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn9 = Button(btnframe1, text=str(quiz_subjects[8]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Entertainment')))
 btn9.grid(row=2, column=2, padx=20, pady=30)
 
-btn10 = Button(btnframe1, text=str(quiz_subjects[9]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn10 = Button(btnframe1, text=str(quiz_subjects[9]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Mythology')))
 btn10.grid(row=3, column=0, padx=20, pady=30)
 
-btn11 = Button(btnframe1, text=str(quiz_subjects[10]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn11 = Button(btnframe1, text=str(quiz_subjects[10]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Current Affairs')))
 btn11.grid(row=3, column=1, padx=20, pady=30)
 
-btn12 = Button(btnframe1, text=str(quiz_subjects[11]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :show_frame(Question))
+btn12 = Button(btnframe1, text=str(quiz_subjects[11]), width=15, font=(fon, 20),bg='#C0EF76',command=lambda :(show_frame(Question),Show_Question('Pop Culture')))
 btn12.grid(row=3, column=2, padx=20, pady=30)
 
 
@@ -411,15 +503,110 @@ opt3.grid(row=1,column=0,pady=(45,0))
 opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('D'),color_button('D')))
 opt4.grid(row=1,column=2,padx=(120,0),pady=(45,0))
 
-submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",command=lambda :(increase_qno(),show_Questions_forcont(),score_add()))
+submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",
+                 command=lambda :(score_add(),increase_qno(),show_Questions_forcont()))
 submitbtn.pack(anchor="s",pady=(50))
 
 
-
 #stats
-Stats_label=Label(Stats,text="",fon=(fon,34),bg="#E9EDF1")
+Stats_label=Label(Stats,text="",font=(fon,34),bg="#E9EDF1")
 Stats_label.pack()
 
+Final_score_label=Label(Stats,text='score',font=(fon,24),bg="#E9EDF1")
+Final_score_label.pack(anchor='w',padx=(45,7),pady=(23,0))
+
+graph_frame=Frame(Stats,bg='#E9EDF1')
+graph_frame.pack()
+
+piechart_label=Label(graph_frame,image=pie)
+piechart_label.grid(row=0,column=0,padx=(3,7))
+
+graphbtn_frame=Frame(graph_frame,bg="#E9EDF1")
+graphbtn_frame.grid(row=0,column=1)
+
+barbtn=Button(graphbtn_frame,text='View your highest in each subject',font=(fon,14),command=lambda :(bargraph_show(),show_frame(Barchart)))
+barbtn.grid(row=0,column=0,padx=(7,9),pady=(0,10))
+
+linebtn=Button(graphbtn_frame,text='View your progress in each subject',font=(fon,14),command=lambda :(show_frame(SProgress)))
+linebtn.grid(row=1,column=0,padx=(7,9),pady=(5,8))
+
+exitbtn=Button(graphbtn_frame,text='exit',font=(fon,14),command=lambda: exit())
+exitbtn.grid(row=2,column=0,padx=(7,9),pady=(5,8))
+
+
+#Barchart
+bargraph=None
+Barchart_Image=Label(Barchart,image=bargraph)
+Barchart_Image.pack()
+
+backbtn=Button(Barchart,bg='blue',text="Back",command=lambda :show_frame(Stats))
+backbtn.pack(anchor='s')
+
+#SProgress
+Pbtnframe = Frame(SProgress, bg="#E9EDF1")
+Pbtnframe.pack(pady=(70, 0))
+
+Pbtn1 = Button(Pbtnframe, text=str(quiz_subjects[0]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[0])))
+Pbtn1.grid(row=0, column=0, padx=20, pady=30)
+
+Pbtn2 = Button(Pbtnframe, text=str(quiz_subjects[1]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[1])))
+Pbtn2.grid(row=0, column=1, padx=20, pady=30)
+
+Pbtn3 = Button(Pbtnframe, text=str(quiz_subjects[2]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[2])))
+Pbtn3.grid(row=0, column=2, padx=20, pady=30)
+
+Pbtn4 = Button(Pbtnframe, text=str(quiz_subjects[3]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[3])))
+Pbtn4.grid(row=1, column=0, padx=20, pady=30)
+
+Pbtn5 = Button(Pbtnframe, text=str(quiz_subjects[4]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[4])))
+Pbtn5.grid(row=1, column=1, padx=20, pady=30)
+
+Pbtn6 = Button(Pbtnframe, text=str(quiz_subjects[5]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[5])))
+Pbtn6.grid(row=1, column=2, padx=20, pady=30)
+
+Pbtn7 = Button(Pbtnframe, text=str(quiz_subjects[6]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[6])))
+Pbtn7.grid(row=2, column=0, padx=20, pady=30)
+
+Pbtn8 = Button(Pbtnframe, text=str(quiz_subjects[7]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[7])))
+Pbtn8.grid(row=2, column=1, padx=20, pady=30)
+
+Pbtn9 = Button(Pbtnframe, text=str(quiz_subjects[8]), width=15, font=(fon, 20),bg='#C0EF76'
+               ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[8])))
+Pbtn9.grid(row=2, column=2, padx=20, pady=30)
+
+Pbtn10 = Button(Pbtnframe, text=str(quiz_subjects[9]), width=15, font=(fon, 20),bg='#C0EF76'
+                ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[9])))
+Pbtn10.grid(row=3, column=0, padx=20, pady=30)
+
+Pbtn11 = Button(Pbtnframe, text=str(quiz_subjects[10]), width=15, font=(fon, 20),bg='#C0EF76'
+                ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[10])))
+Pbtn11.grid(row=3, column=1, padx=20, pady=30)
+
+Pbtn12 = Button(Pbtnframe, text=str(quiz_subjects[11]), width=15, font=(fon, 20),bg='#C0EF76'
+                ,command=lambda :(show_frame(LinegraphFrame),show_graph(quiz_subjects[11])))
+Pbtn12.grid(row=3, column=2, padx=20, pady=30)
+
+Pbackbtn=Button(SProgress,bg='blue',text="Back"
+                ,command=lambda :show_frame(Stats))
+Pbackbtn.pack()
+
+
+
+#LinegraphFrame
+Linegraph=None
+Linegraph_Image=Label(LinegraphFrame,image=Linegraph)
+Linegraph_Image.grid(row=0,column=0)
+
+Lbackbtn=Button(LinegraphFrame,bg='blue',text="Back",command=lambda :show_frame(SProgress))
+Lbackbtn.grid(row=1,column=0)
 
 
 root.mainloop()
