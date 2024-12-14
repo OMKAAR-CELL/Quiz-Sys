@@ -4,8 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image,ImageTk
 
+
 username=NONE
 
+
+#helping Functions
 def get_length(df,sub,user):
     id_df=df[(df['Subject']==sub) & (df['Username']==user)]
     length=len(id_df)
@@ -18,7 +21,6 @@ def get_subject(df,sub,user):
     
     return Scoredf
     
-
 def get_max(ls, df, user):
     results = []
     for index in range(len(ls)):
@@ -28,7 +30,9 @@ def get_max(ls, df, user):
         else:
             results.append(0)  # Default score if no matching records
     return results
-    
+
+
+#Chart creating functions
 def create_piechart(score):
     plt.pie([score,10-score],labels=["Right","Wrong"])
     plt.legend()
@@ -49,8 +53,10 @@ def create_linechart(subject,user_progress_data,username):
     plt.legend()
     plt.savefig('LineChart')
     plt.close()
+    
 
-def add_user():
+#button function & backend
+def add_user(): #Signing Up and adding user in respective csv file
     global username
     username = signup_username_ent.get().strip()
     password = signup_password_ent.get().strip()
@@ -69,7 +75,8 @@ def add_user():
         messagebox.showinfo('Success', 'User registered successfully!')
         show_frame(Login)
 
-def login_user():
+
+def login_user(): #Logingin in user
     global username
     username = login_username_ent.get().strip()
     password = login_password_ent.get().strip()
@@ -86,12 +93,12 @@ def login_user():
         messagebox.showwarning('login failed','please enter correct username and password')
          
     
-def increase_qno():
+def increase_qno(): #increasing qustion number
     global qno
     qno+=1
 
 
-def Show_Question(id):
+def Show_Question(id): #Showing question for the first instance
     global qno
     global globalid
     global section_question
@@ -111,17 +118,7 @@ def Show_Question(id):
     opt3.configure(text=section_question.loc[qno - 1, "OptionC"])
     opt4.configure(text=section_question.loc[qno - 1, "OptionD"])
        
-def show_stats():
-    global pie
-    Stats_label.config(text=f"Congrats {username} for completing this Quiz!!!")
-    Final_score_label.configure(text=f"Score: {score}")
-    pie=Image.open('piechart.png')
-    pie = pie.resize((400, 400))
-    pie = ImageTk.PhotoImage(pie)
-    piechart_label.config(image=pie,bg='#E9EDF1')
-    show_frame(Stats) 
-        
-def show_Questions_forcont():
+def show_Questions_forcont(): #Showing question after first instance
     global qno
     global section_question
     
@@ -143,8 +140,6 @@ def show_Questions_forcont():
         Progress_recorded()
         show_stats()
         
-    
-    
 def check(opt):
     global res
     global section_question
@@ -153,8 +148,8 @@ def check(opt):
     if opt==section_ans.loc[qno-1,'Correct_Option']:
         res=1    
     else:
-        res=0 
-        
+        res=0   
+    
 def color_button(p):
     if p=='A':
         opt1.configure(bg='red')
@@ -175,13 +170,12 @@ def color_button(p):
         opt1.configure(bg='#2eff70')
         opt2.configure(bg='#2eff70')
         opt3.configure(bg='#2eff70')
-        opt4.configure(bg='red')
+        opt4.configure(bg='red') 
     
-       
 def score_add():
     global score
     score+=int(res)
-    score_label.config(text=f"Score: {score}")
+    score_label.config(text=f"Score: {score}") 
     
 def Progress_recorded():
     global username, score, globalid, user_progress_data, quiz_subjects
@@ -189,7 +183,17 @@ def Progress_recorded():
     user_progress_data = pd.concat([user_progress_data, new_row], ignore_index=True)
     user_progress_data.to_csv('user_progress.csv', index=False)
     create_piechart(score)
-    create_barchart(quiz_subjects,user_progress_data,username)
+    create_barchart(quiz_subjects,user_progress_data,username)  
+
+def show_stats(): #Showing Statistics frame
+    global pie
+    Stats_label.config(text=f"Congrats {username} for completing this Quiz!!!")
+    Final_score_label.configure(text=f"Score: {score}")
+    pie=Image.open('piechart.png')
+    pie = pie.resize((400, 400))
+    pie = ImageTk.PhotoImage(pie)
+    piechart_label.config(image=pie,bg='#E9EDF1')
+    show_frame(Stats) 
     
 def bargraph_show():
     global bargraph
@@ -206,10 +210,8 @@ def show_graph(pid):
     Linegraph = ImageTk.PhotoImage(Linegraph)
     Linegraph_Image.config(image=Linegraph)
     
-    
 def exit():
     root.destroy()
-    
 
 def restart():
     global qno, score, section_question, res, username, globalid
@@ -274,6 +276,7 @@ root = Tk()
 root.geometry("900x600")
 root.configure(background="#E9EDF1")
 root.resizable(0, 0)
+root.title('QUIZ')
 
 
 # Frames
@@ -282,10 +285,10 @@ Login = Frame(root, background="#E9EDF1")
 Signup = Frame(root, background="#E9EDF1")
 Declar = Frame(root, background="#E9EDF1")
 Question = Frame(root, background="#E9EDF1")
-Stats=Frame(root)
-Barchart=Frame(root)
+Stats=Frame(root,background='#ffffff')
+Barchart=Frame(root,background='#ffffff')
 SProgress=Frame(root,background="#E9EDF1")
-LinegraphFrame=Frame(root)
+LinegraphFrame=Frame(root,background='#ffffff')
 
 for frame in (Welcome, Signup, Login,Declar,Question,Stats,Barchart,SProgress,LinegraphFrame):
     frame.grid(row=0, column=0, sticky="nsew")
@@ -412,14 +415,15 @@ login_password_txt=Label(
     Login,
     text="password",
     font=(fon,28),
-    bg="#E9EDF1"
+    bg="#E9EDF1",
 )
 login_password_txt.pack(pady=(25,0),padx=(250,0),anchor="w")
 
 login_password_ent=Entry(
     Login,
     width=20,
-    font=(fon,22)
+    font=(fon,22),
+    show='*'
 )
 login_password_ent.pack(pady=(13,10),padx=0)
 
@@ -532,19 +536,19 @@ submitbtn.pack(anchor="s",pady=(50))
 
 
 #stats
-Stats_label=Label(Stats,text="",font=(fon,34),bg="#E9EDF1")
+Stats_label=Label(Stats,text="",font=(fon,34),bg="#ffffff")
 Stats_label.pack()
 
-Final_score_label=Label(Stats,text='score',font=(fon,24),bg="#E9EDF1")
+Final_score_label=Label(Stats,text='score',font=(fon,24),bg="#ffffff")
 Final_score_label.pack(anchor='w',padx=(45,7),pady=(23,0))
 
-graph_frame=Frame(Stats,bg='#E9EDF1')
+graph_frame=Frame(Stats,bg='#ffffff')
 graph_frame.pack()
 
 piechart_label=Label(graph_frame,image=pie)
 piechart_label.grid(row=0,column=0,padx=(3,7))
 
-graphbtn_frame=Frame(graph_frame,bg="#E9EDF1")
+graphbtn_frame=Frame(graph_frame,bg="#ffffff")
 graphbtn_frame.grid(row=0,column=1)
 
 barbtn=Button(graphbtn_frame,text='View your highest in each subject',font=(fon,14),command=lambda :(bargraph_show(),show_frame(Barchart)))
