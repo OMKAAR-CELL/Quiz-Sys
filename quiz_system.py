@@ -36,7 +36,7 @@ def get_max(ls, df, user):
 def create_piechart(score):
     plt.pie([score,10-score],labels=["Right","Wrong"])
     plt.legend()
-    plt.savefig('piechart')
+    plt.savefig('Images/piechart')
     plt.close()
 
 def create_barchart(quiz_subjects,user_progress_data,username):
@@ -45,13 +45,13 @@ def create_barchart(quiz_subjects,user_progress_data,username):
     plt.yticks(fontsize=8)
     plt.ylabel('Subjects')
     plt.xlabel('Maximum Score')
-    plt.savefig('Barchart')
+    plt.savefig('Images/Barchart')
     plt.close()
     
 def create_linechart(subject,user_progress_data,username):
     plt.plot(get_length(user_progress_data, subject, username), get_subject(user_progress_data, subject, username), label=subject)
     plt.legend()
-    plt.savefig('LineChart')
+    plt.savefig('Images/LineChart')
     plt.close()
     
 
@@ -69,7 +69,7 @@ def add_user(): #Signing Up and adding user in respective csv file
         messagebox.showinfo('Username already exists', f"Username '{username}' is already taken. Please choose a different one.")
     else:
         user_pass_data.loc[len(user_pass_data)] = [username, password]
-        user_pass_data.to_csv('users.csv', index=False)
+        user_pass_data.to_csv('Data/users.csv', index=False)
         signup_username_ent.delete(0, END)
         signup_password_ent.delete(0, END)
         messagebox.showinfo('Success', 'User registered successfully!')
@@ -181,7 +181,7 @@ def Progress_recorded():
     global username, score, globalid, user_progress_data, quiz_subjects
     new_row = pd.DataFrame([[username, score, globalid]], columns=["Username", "Score", "Subject"])
     user_progress_data = pd.concat([user_progress_data, new_row], ignore_index=True)
-    user_progress_data.to_csv('user_progress.csv', index=False)
+    user_progress_data.to_csv('Data/user_progress.csv', index=False)
     create_piechart(score)
     create_barchart(quiz_subjects,user_progress_data,username)  
 
@@ -189,7 +189,7 @@ def show_stats(): #Showing Statistics frame
     global pie
     Stats_label.config(text=f"Congrats {username} for completing this Quiz!!!")
     Final_score_label.configure(text=f"Score: {score}")
-    pie=Image.open('piechart.png')
+    pie=Image.open('Images/piechart.png')
     pie = pie.resize((400, 400))
     pie = ImageTk.PhotoImage(pie)
     piechart_label.config(image=pie,bg='#E9EDF1')
@@ -197,7 +197,7 @@ def show_stats(): #Showing Statistics frame
     
 def bargraph_show():
     global bargraph
-    bargraph=Image.open('Barchart.png')
+    bargraph=Image.open('Images\Barchart.png')
     bargraph = bargraph.resize((400, 400))
     bargraph = ImageTk.PhotoImage(bargraph)
     Barchart_Image.config(image=bargraph)
@@ -205,7 +205,7 @@ def bargraph_show():
 def show_graph(pid):
     global username,user_progress_data,Linegraph
     create_linechart(pid,user_progress_data,username)
-    Linegraph=Image.open('LineChart.png')
+    Linegraph=Image.open('Images/LineChart.png')
     Linegraph = Linegraph.resize((400, 400))
     Linegraph = ImageTk.PhotoImage(Linegraph)
     Linegraph_Image.config(image=Linegraph)
@@ -240,9 +240,9 @@ def restart():
 
 
     
-user_pass_data=pd.read_csv('users.csv')
-questions_data=pd.read_csv('krishna.csv')
-user_progress_data=pd.read_csv('user_progress.csv')
+user_pass_data=pd.read_csv('Data/users.csv')
+questions_data=pd.read_csv('Data/krishna.csv')
+user_progress_data=pd.read_csv('Data/user_progress.csv')
 # List of subjects for the quiz
 quiz_subjects = [
     "General Knowledge",
