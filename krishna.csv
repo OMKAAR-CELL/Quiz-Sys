@@ -1,0 +1,241 @@
+Subject,Question ID,Question,OptionA,OptionB,OptionC,OptionD,Correct_Option
+General Knowledge,GEN01,What is the capital of France?,Paris,London,Berlin,Madrid,Option A
+General Knowledge,GEN02,Who is known as the Iron Man of India?,Mahatma Gandhi,Subhas Bose,Sardar Patel,Jawaharlal Nehru,Option C
+General Knowledge,GEN03,Which is the smallest continent by land area?,Australia,Europe,Antarctica,South America,Option A
+General Knowledge,GEN04,What does the term 'Eureka' mean?,Happiness,Discovery,Victory,Sadness,Option B
+General Knowledge,GEN05,Who invented the light bulb?,Thomas Edison,Nikola Tesla,Graham Bell,James Watt,Option A
+General Knowledge,GEN06,Which organ pumps blood in the human body?,Brain,Lungs,Heart,Liver,Option C
+General Knowledge,GEN07,Who wrote the national anthem of India?,Rabindranath Tagore,Bankim Chandra,Sarojini Naidu,Subhash Bose,Option A
+General Knowledge,GEN08,The tallest building in the world is located in?,Shanghai,Dubai,New York,Tokyo,Option B
+General Knowledge,GEN09,Which ocean is the largest?,Atlantic,Indian,Pacific,Arctic,Option C
+General Knowledge,GEN10,Who discovered gravity?,Einstein,Newton,Galileo,Darwin,Option B
+General Knowledge,GEN11,What is the square root of 144?,10,11,12,13,Option C
+General Knowledge,GEN12,Which planet is closest to the Sun?,Earth,Venus,Mercury,Mars,Option C
+General Knowledge,GEN13,What is the full form of 'WWW'?,World Wide Web,Wild World Web,Western Web World,Wired Web World,Option A
+General Knowledge,GEN14,Which gas do plants release during photosynthesis?,Carbon Dioxide,Nitrogen,Oxygen,Hydrogen,Option C
+General Knowledge,GEN15,Who is the current President of India (2024)?,Ram Nath Kovind,Droupadi Murmu,Pranab Mukherjee,Narendra Modi,Option B
+General Knowledge,GEN16,Which country is called the Land of Rising Sun?,India,Japan,China,South Korea,Option B
+General Knowledge,GEN17,What is the chemical symbol for Sodium?,Na,So,Sn,S,Option A
+General Knowledge,GEN18,Which festival is celebrated to mark the victory of good over evil?,Eid,Holi,Diwali,Christmas,Option C
+General Knowledge,GEN19,The Statue of Liberty was a gift from which country?,France,Germany,Italy,Spain,Option A
+General Knowledge,GEN20,Which language is the most spoken worldwide?,Hindi,Mandarin,English,Spanish,Option B
+Science,SCI01,What is H2O commonly known as?,Salt,Water,Oxygen,Hydrogen,Option B
+Science,SCI02,Who proposed the theory of relativity?,Galileo,Newton,Einstein,Bohr,Option C
+Science,SCI03,What is the pH value of pure water?,6,7,8,9,Option B
+Science,SCI04,Which vitamin is produced in the body with sunlight?,Vitamin A,Vitamin B,Vitamin C,Vitamin D,Option D
+Science,SCI05,What is the chemical symbol for Gold?,Au,Ag,Gd,Go,Option A
+Science,SCI06,Which gas is essential for respiration?,Carbon Dioxide,Oxygen,Nitrogen,Hydrogen,Option B
+Science,SCI07,What type of energy is stored in a battery?,Kinetic Energy,Chemical Energy,Thermal Energy,Solar Energy,Option B
+Science,SCI08,Who is the father of modern chemistry?,Lavoisier,Dalton,Mendeleev,Bohr,Option A
+Science,SCI09,What is Newton's Third Law of Motion?,Energy is constant,Every action...,Acceleration...,Force equals mass,Option B
+Science,SCI10,What is the speed of light?,"300,000 m/s","3,000 m/s","300,000 km/s",3 km/s,Option C
+Science,SCI11,What is the smallest unit of life?,Atom,Molecule,Cell,Organ,Option C
+Science,SCI12,Which part of the plant conducts photosynthesis?,Roots,Stem,Leaves,Flowers,Option C
+Science,SCI13,What is the primary gas found in Earth's atmosphere?,Oxygen,Nitrogen,Carbon Dioxide,Argon,Option B
+Science,SCI14,Who discovered penicillin?,Curie,Fleming,Pasteur,Jenner,Option B
+Science,SCI15,What type of bond is in a water molecule?,Ionic Bond,Covalent Bond,Hydrogen Bond,Metallic Bond,Option B
+Science,SCI16,Which organ produces insulin?,Liver,Heart,Pancreas,Brain,Option C
+Science,SCI17,What force keeps planets in orbit around the Sun?,Magnetic Force,Friction,Gravity,Inertia,Option C
+Science,SCI18,Which gas is commonly known as laughing gas?,Oxygen,Carbon Monoxide,Nitrous Oxide,Sulfur Dioxide,Option C
+Science,SCI19,What is the basic unit of heredity?,DNA,Gene,Chromosome,RNA,Option B
+Science,SCI20,What is the boiling point of water at sea level?,0°C,50°C,100°C,150°C,Option C
+Mathematics,MAT01,What is the value of π (pi) up to two decimal places?,3.14,3.15,3.12,3.16,Option A
+Mathematics,MAT02,What is the derivative of x²?,2x,x²,2x²,x,Option A
+Mathematics,MAT03,The sum of angles in a triangle is?,180°,90°,360°,270°,Option A
+Mathematics,MAT04,What is the area of a circle with radius 7 cm?,154 cm²,49 cm²,22 cm²,38 cm²,Option B
+Mathematics,MAT05,What is the square root of 256?,12,14,16,18,Option C
+Mathematics,MAT06,"If a triangle has sides 3, 4, and 5, what type of triangle is it?",Equilateral,Isosceles,Scalene,Right-Angled,Option D
+Mathematics,MAT07,The quadratic formula is used to solve?,Linear Equations,Polynomial Equations,Differential Equations,Exponential Equations,Option B
+Mathematics,MAT08,What is the value of sin 90°?,0,1,√2/2,1-Feb,Option B
+Mathematics,MAT09,What is the perimeter of a rectangle with length 5 cm and width 3 cm?,10 cm,15 cm,16 cm,8 cm,Option C
+Mathematics,MAT10,What is the solution to 5x = 20?,x = 4,x = 5,x = 6,x = 3,Option A
+Mathematics,MAT11,What is the formula for the area of a triangle?,½ × base × height,base × height,base × base,2 × base × height,Option A
+Mathematics,MAT12,What is the sum of the interior angles of a polygon with 5 sides?,540°,360°,180°,270°,Option A
+Mathematics,MAT13,"If a = 2 and b = 3, what is a² + b²?",5,13,9,7,Option B
+Mathematics,MAT14,The value of log₁₀ 1000 is?,1,2,3,4,Option C
+Mathematics,MAT15,What is the slope of the line y = 2x + 3?,2,3,1,0,Option A
+Mathematics,MAT16,What is the formula for the volume of a sphere?,4/3 πr³,πr²h,2πr³,1/3 πr²h,Option A
+Mathematics,MAT17,The value of tan 45° is?,0,1,√2,undefined,Option B
+Mathematics,MAT18,What is the area of a square with side length 4 cm?,8 cm²,12 cm²,16 cm²,20 cm²,Option C
+Mathematics,MAT19,What is the value of 2³?,8,6,9,7,Option A
+Mathematics,MAT20,What is the value of cos 0°?,0,1,√3/2,½,Option B
+History,HIS01,Who was the first president of the United States?,George Washington,Thomas Jefferson,Abraham Lincoln,John Adams,Option A
+History,HIS02,When did World War II end?,1943,1944,1945,1946,Option C
+History,HIS03,Who was the first emperor of China?,Qin Shi Huang,Han Wudi,Li Shimin,Sun Yat-sen,Option A
+History,HIS04,Who was the leader of the Indian independence movement?,Jawaharlal Nehru,Subhas Chandra Bose,Mahatma Gandhi,Bhagat Singh,Option C
+History,HIS05,The Magna Carta was signed in which year?,1215,1225,1200,1300,Option A
+History,HIS06,Who was the last Mughal Emperor of India?,Akbar,Shah Jahan,Aurangzeb,Bahadur Shah Zafar,Option D
+History,HIS07,The Battle of Waterloo was fought in which year?,1800,1815,1820,1850,Option B
+History,HIS08,Who was the first woman Prime Minister of India?,Indira Gandhi,Sarojini Naidu,Sushma Swaraj,Pratibha Patil,Option A
+History,HIS09,Who wrote the book 'The Republic'?,Aristotle,Plato,Socrates,Cicero,Option B
+History,HIS10,Which empire was ruled by Alexander the Great?,Roman Empire,Persian Empire,Macedonian Empire,Byzantine Empire,Option C
+History,HIS11,Who discovered America in 1492?,Christopher Columbus,Marco Polo,Ferdinand Magellan,John Cabot,Option A
+History,HIS12,The French Revolution started in which year?,1789,1799,1800,1810,Option A
+History,HIS13,Which country did Japan invade in 1937?,China,Korea,Russia,Vietnam,Option A
+History,HIS14,The Berlin Wall fell in which year?,1987,1989,1991,1993,Option B
+History,HIS15,Who was the first emperor of the Roman Empire?,Julius Caesar,Augustus,Nero,Tiberius,Option B
+History,HIS16,The first manned mission to the Moon was in which year?,1965,1967,1969,1971,Option C
+History,HIS17,The Cold War was primarily between which two countries?,USA and USSR,USA and China,China and USSR,USA and Germany,Option A
+History,HIS18,Which ancient civilization is known for creating the first written laws?,Roman,Babylonian,Greek,Egyptian,Option B
+History,HIS19,The industrial revolution began in which country?,USA,Germany,France,England,Option D
+History,HIS20,Who was the leader of Nazi Germany during World War II?,Adolf Hitler,Joseph Stalin,Benito Mussolini,Francisco Franco,Option A
+Geography,GEO01,What is the longest river in the world?,Nile,Amazon,Yangtze,Mississippi,Option A
+Geography,GEO02,Which country has the most natural lakes?,USA,Canada,Russia,Finland,Option B
+Geography,GEO03,What is the capital city of Australia?,Sydney,Melbourne,Canberra,Adelaide,Option C
+Geography,GEO04,Mount Everest is located in which country?,China,Nepal,India,Bhutan,Option B
+Geography,GEO05,Which continent is the Sahara Desert located in?,Africa,Asia,South America,Australia,Option A
+Geography,GEO06,The Great Barrier Reef is located off the coast of which country?,Australia,USA,South Africa,Fiji,Option A
+Geography,GEO07,Which is the largest ocean on Earth?,Atlantic,Indian,Pacific,Arctic,Option C
+Geography,GEO08,What is the largest country in the world by area?,Russia,Canada,USA,China,Option A
+Geography,GEO09,Which country is known as the Land of the Rising Sun?,Japan,Korea,China,Vietnam,Option A
+Geography,GEO10,The Amazon rainforest is primarily located in which country?,Brazil,Peru,Colombia,Ecuador,Option A
+Geography,GEO11,What is the smallest country in the world by area?,Monaco,Vatican City,Nauru,San Marino,Option B
+Geography,GEO12,Which of the following countries is landlocked?,Peru,Bolivia,Chile,Argentina,Option B
+Geography,GEO13,The equator passes through how many continents?,2,3,4,5,Option C
+Geography,GEO14,"Which city is known as the ""City of Canals""?",Venice,Amsterdam,Bangkok,Cairo,Option A
+Geography,GEO15,Which country has the highest population in the world?,China,India,USA,Indonesia,Option B
+Geography,GEO16,What is the tallest mountain in Africa?,Mount Kilimanjaro,Mount Kenya,Mount Everest,Mount Elbrus,Option A
+Geography,GEO17,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,Option A
+Geography,GEO18,Which desert is the largest in the world?,Atacama,Kalahari,Gobi,Sahara,Option D
+Geography,GEO19,The Dead Sea lies between which two countries?,Israel and Egypt,Jordan and Israel,Egypt and Syria,Jordan and Iraq,Option B
+Geography,GEO20,What is the highest mountain in the world?,Mount Kilimanjaro,Mount Everest,K2,Kangchenjunga,Option B
+Literature,LIT01,"Who wrote the play ""Romeo and Juliet""?",William Shakespeare,Charles Dickens,Jane Austen,Oscar Wilde,Option A
+Literature,LIT02,"""1984"" was written by which author?",George Orwell,Aldous Huxley,J.K. Rowling,William Golding,Option A
+Literature,LIT03,"Who is the author of ""Pride and Prejudice""?",Charlotte Brontë,Jane Austen,Virginia Woolf,Elizabeth Gaskell,Option B
+Literature,LIT04,"""The Catcher in the Rye"" was written by which author?",J.D. Salinger,Ernest Hemingway,Mark Twain,F. Scott Fitzgerald,Option A
+Literature,LIT05,"Who wrote ""Moby Dick""?",Nathaniel Hawthorne,Herman Melville,Charles Dickens,Ralph Waldo Emerson,Option B
+Literature,LIT06,"Who is the author of ""The Great Gatsby""?",Ernest Hemingway,F. Scott Fitzgerald,Mark Twain,J.K. Rowling,Option B
+Literature,LIT07,"Who wrote ""The Divine Comedy""?",John Milton,Dante Alighieri,Geoffrey Chaucer,Homer,Option B
+Literature,LIT08,"""Wuthering Heights"" was written by which author?",Emily Brontë,Charlotte Brontë,Anne Brontë,Virginia Woolf,Option A
+Literature,LIT09,"Who wrote ""The Odyssey""?",Sophocles,Aeschylus,Homer,Euripides,Option C
+Literature,LIT10,"Who wrote ""The Old Man and the Sea""?",William Faulkner,Mark Twain,Ernest Hemingway,John Steinbeck,Option C
+Literature,LIT11,"Who is the author of ""To Kill a Mockingbird""?",Harper Lee,J.K. Rowling,John Grisham,William Faulkner,Option A
+Literature,LIT12,"Who wrote ""Jane Eyre""?",Charles Dickens,George Eliot,Charlotte Brontë,Emily Dickinson,Option C
+Literature,LIT13,"Who wrote ""The Lord of the Rings""?",J.R.R. Tolkien,C.S. Lewis,George Orwell,Philip Pullman,Option A
+Literature,LIT14,"Who is the author of ""The Hobbit""?",J.R.R. Tolkien,C.S. Lewis,George Orwell,Philip Pullman,Option A
+Literature,LIT15,"Who wrote ""Frankenstein""?",Mary Shelley,Bram Stoker,Edgar Allan Poe,Oscar Wilde,Option A
+Literature,LIT16,"Who is the author of ""The Brothers Karamazov""?",Leo Tolstoy,Fyodor Dostoevsky,Anton Chekhov,Mikhail Bulgakov,Option B
+Literature,LIT17,"""Don Quixote"" was written by which author?",Gabriel García Márquez,Miguel de Cervantes,Pablo Neruda,Isabel Allende,Option B
+Literature,LIT18,"Who is the author of ""The Picture of Dorian Gray""?",Oscar Wilde,George Orwell,J.K. Rowling,Aldous Huxley,Option A
+Literature,LIT19,"Who wrote ""Heart of Darkness""?",Joseph Conrad,Ernest Hemingway,Mark Twain,Henry James,Option A
+Literature,LIT20,"Who wrote ""The Grapes of Wrath""?",John Steinbeck,Harper Lee,Ernest Hemingway,F. Scott Fitzgerald,Option A
+Technology,TEC01,Who is the founder of Microsoft?,Steve Jobs,Bill Gates,Mark Zuckerberg,Larry Page,Option B
+Technology,TEC02,"What does ""HTTP"" stand for in internet technology?",Hyper Transfer Protocol,Hyper Text Transfer Protocol,Hyper Technology Protocol,High Transfer Text Protocol,Option B
+Technology,TEC03,"What is the full form of ""USB""?",Universal Standard Base,Universal Serial Bus,Unified Serial Bus,United Standard Bus,Option B
+Technology,TEC04,"What does ""RAM"" stand for in computer science?",Random Access Memory,Read Access Memory,Random Assembly Memory,Run Access Memory,Option A
+Technology,TEC05,What is the primary function of an operating system?,Managing hardware,Running programs,Storing files,All of the above,Option D
+Technology,TEC06,Which of these is a programming language?,HTML,Python,Java,All of the above,Option D
+Technology,TEC07,What is the main function of a CPU?,Execute instructions,Store data,Display output,Manage power,Option A
+Technology,TEC08,What is the latest version of Android as of 2024?,Android 12,Android 13,Android 14,Android 15,Option C
+Technology,TEC09,Who invented the World Wide Web?,Steve Jobs,Tim Berners-Lee,Bill Gates,Vint Cerf,Option B
+Technology,TEC10,What is the most common database language?,SQL,Python,C++,Java,Option A
+Technology,TEC11,"What is ""cloud computing""?",Using remote servers for data processing,Storing data on physical servers,A type of computer memory,A type of programming language,Option A
+Technology,TEC12,"What does ""AI"" stand for in technology?",Artificial Intelligence,Automated Integration,Asynchronous Interaction,Automated Intelligence,Option A
+Technology,TEC13,Which of these is a mobile operating system?,Android,Windows,macOS,All of the above,Option A
+Technology,TEC14,What is a computer virus?,A type of malware,A program error,A hardware defect,A type of software,Option A
+Technology,TEC15,"What does ""Wi-Fi"" stand for?",Wireless Fidelity,Wide Fidelity,Wireless Frequency,Wide Frequency,Option A
+Technology,TEC16,Which company developed the first iPhone?,Samsung,LG,Apple,Nokia,Option C
+Technology,TEC17,"What is ""3D printing"" used for?",Creating 3D images,Printing objects layer by layer,Making 3D models,Rendering graphics,Option B
+Technology,TEC18,"Who is known as the ""Father of Computers""?",Charles Babbage,Alan Turing,John von Neumann,Steve Jobs,Option A
+Technology,TEC19,What is the name of the first computer virus?,Melissa,ILOVEYOU,MyDoom,Brain,Option D
+Technology,TEC20,Which language is primarily used for web development?,C,JavaScript,Python,Ruby,Option B
+Sports,SPO01,Who won the FIFA World Cup in 2018?,Brazil,Germany,France,Argentina,Option C
+Sports,SPO02,Which country hosted the 2020 Summer Olympics?,China,Japan,USA,UK,Option B
+Sports,SPO03,Who holds the record for most Olympic gold medals?,Michael Phelps,Usain Bolt,Simone Biles,Larisa Latynina,Option A
+Sports,SPO04,Which country won the 2019 ICC Cricket World Cup?,India,Australia,England,New Zealand,Option C
+Sports,SPO05,What is the term for a score of zero in tennis?,Love,Nil,Zero,Nothing,Option A
+Sports,SPO06,In which sport would you use a shuttlecock?,Badminton,Tennis,Squash,Table Tennis,Option A
+Sports,SPO07,Who won the 100 meters at the 2008 Beijing Olympics?,Usain Bolt,Tyson Gay,Justin Gatlin,Yohan Blake,Option A
+Sports,SPO08,Which country is famous for the sport of sumo?,China,Japan,Korea,Mongolia,Option B
+Sports,SPO09,"Who is known as the ""King of Football""?",Lionel Messi,Cristiano Ronaldo,Pele,Diego Maradona,Option C
+Sports,SPO10,"In which sport do teams compete in the ""Ashes""?",Rugby,Tennis,Cricket,Football,Option C
+Sports,SPO11,Who won the 2016 NBA Championship?,Golden State Warriors,Cleveland Cavaliers,Miami Heat,Boston Celtics,Option B
+Sports,SPO12,"In which sport would you find a ""puck""?",Ice Hockey,Basketball,Baseball,Football,Option A
+Sports,SPO13,Who is the most decorated Olympian of all time?,Michael Phelps,Carl Lewis,Mark Spitz,Larisa Latynina,Option A
+Sports,SPO14,What is the national sport of Canada?,Baseball,Ice Hockey,Lacrosse,Basketball,Option B
+Sports,SPO15,What is the length of a standard marathon?,26.2 km,42.2 km,50 km,20 km,Option B
+Sports,SPO16,Which tennis player has the most Grand Slam singles titles?,Roger Federer,Rafael Nadal,Novak Djokovic,Serena Williams,Option C
+Sports,SPO17,"In which sport would you find a ""scrum""?",Rugby,Cricket,American Football,Soccer,Option A
+Sports,SPO18,Which country has won the most FIFA Women's World Cups?,USA,Germany,Brazil,Norway,Option A
+Sports,SPO19,Who is the fastest man in the world (as of 2024)?,Usain Bolt,Yohan Blake,Justin Gatlin,Christian Coleman,Option A
+Sports,SPO20,What is the maximum number of players allowed on a football field per team?,10,11,12,9,Option B
+Entertainment,ENT01,Who played the character of Iron Man in the Marvel movies?,Chris Hemsworth,Robert Downey Jr.,Chris Evans,Mark Ruffalo,Option B
+Entertainment,ENT02,Who won the Oscar for Best Actor in 2023?,Austin Butler,Will Smith,Leonardo DiCaprio,Brendan Fraser,Option D
+Entertainment,ENT03,What is the name of the fictional wizarding school in the Harry Potter series?,Hogwarts School of Witchcraft and Wizardry,Beauxbatons Academy,Durmstrang Institute,Ilvermorny School,Option A
+Entertainment,ENT04,"Who directed the movie ""Titanic""?",Steven Spielberg,James Cameron,Ridley Scott,Martin Scorsese,Option B
+Entertainment,ENT05,"Which TV series featured the character ""Jon Snow""?",Game of Thrones,The Witcher,Vikings,The Mandalorian,Option A
+Entertainment,ENT06,"Which of these actors is known for playing the Joker in ""The Dark Knight""?",Heath Ledger,Jared Leto,Joaquin Phoenix,Jack Nicholson,Option A
+Entertainment,ENT07,"Who won the first season of ""Big Brother""?",Rachel Reilly,Will Kirby,Eddie McGee,Mike Malin,Option C
+Entertainment,ENT08,What is the title of the first Star Wars movie released in 1977?,Star Wars: A New Hope,The Empire Strikes Back,Return of the Jedi,The Phantom Menace,Option A
+Entertainment,ENT09,What is the highest-grossing movie of all time?,Avengers: Endgame,Titanic,Avatar,Star Wars: The Force Awakens,Option A
+Entertainment,ENT10,"Who performed the song ""Shape of You""?",Ed Sheeran,Justin Bieber,Bruno Mars,The Weeknd,Option A
+Entertainment,ENT11,"Which actor starred as ""Jack Sparrow"" in ""Pirates of the Caribbean""?",Orlando Bloom,Johnny Depp,Will Smith,Tom Hanks,Option B
+Entertainment,ENT12,"What is the name of the fictional African country in ""Black Panther""?",Wakanda,Zamunda,Genovia,Elbonia,Option A
+Entertainment,ENT13,Who won the Grammy Award for Album of the Year in 2023?,Beyoncé,Harry Styles,Taylor Swift,Adele,Option B
+Entertainment,ENT14,"Who is known as the ""King of Pop""?",Michael Jackson,Prince,Elvis Presley,Justin Timberlake,Option A
+Entertainment,ENT15,"Who played the character of Elsa in the movie ""Frozen""?",Kristen Bell,Idina Menzel,Anna Kendrick,Demi Lovato,Option B
+Entertainment,ENT16,"Who is the host of the talk show ""The Late Show""?",Stephen Colbert,Jimmy Fallon,Jimmy Kimmel,Conan O'Brien,Option A
+Entertainment,ENT17,"Who wrote the novel ""The Great Gatsby""?",F. Scott Fitzgerald,Ernest Hemingway,John Steinbeck,William Faulkner,Option A
+Entertainment,ENT18,"Which singer is known for the hit song ""Bad Romance""?",Lady Gaga,Katy Perry,Beyoncé,Rihanna,Option A
+Entertainment,ENT19,Who played the role of Hermione Granger in the Harry Potter films?,Emma Watson,Jennifer Lawrence,Natalie Portman,Keira Knightley,Option A
+Entertainment,ENT20,"What is the name of the fictional company in ""The Office""?",Dunder Mifflin,Wernham Hogg,Paperchase,Scranton Paper Co.,Option A
+Mythology,MYT01,Who is the king of the Greek gods?,Zeus,Poseidon,Hades,Apollo,Option A
+Mythology,MYT02,Who was the mother of the Hindu god Ganesha?,Lakshmi,Parvati,Saraswati,Durga,Option B
+Mythology,MYT03,Who is the Greek goddess of wisdom?,Hera,Aphrodite,Artemis,Athena,Option D
+Mythology,MYT04,"In Norse mythology, who is the god of thunder?",Loki,Thor,Odin,Freyja,Option B
+Mythology,MYT05,"In which culture is the ""Phoenix"" a prominent symbol?",Egyptian,Greek,Chinese,Roman,Option A
+Mythology,MYT06,Who is the Roman god of war?,Mars,Jupiter,Neptune,Pluto,Option A
+Mythology,MYT07,"In Egyptian mythology, who was the god of the sun?",Osiris,Ra,Anubis,Horus,Option B
+Mythology,MYT08,Who was the Greek goddess of love and beauty?,Hera,Aphrodite,Demeter,Persephone,Option B
+Mythology,MYT09,What animal is associated with the Egyptian goddess Bastet?,Cat,Dog,Horse,Falcon,Option A
+Mythology,MYT10,Who was the Norse god of mischief?,Loki,Thor,Odin,Freyja,Option A
+Mythology,MYT11,What is the weapon of the Hindu god Shiva?,Trishul,Bow,Sword,Axe,Option A
+Mythology,MYT12,Who is the Hindu god of destruction?,Vishnu,Shiva,Brahma,Ganesha,Option B
+Mythology,MYT13,"In Greek mythology, who was the Titan of time?",Cronus,Rhea,Atlas,Prometheus,Option A
+Mythology,MYT14,Who was the mother of the Norse gods?,Freyja,Frigg,Hel,Sif,Option B
+Mythology,MYT15,"In Egyptian mythology, who was the god of the underworld?",Anubis,Ra,Horus,Osiris,Option A
+Mythology,MYT16,"In Roman mythology, who was the goddess of wisdom?",Juno,Venus,Minerva,Diana,Option C
+Mythology,MYT17,"In Hindu mythology, who is the god of wealth?",Vishnu,Lakshmi,Ganesha,Shiva,Option B
+Mythology,MYT18,Who was the Greek hero who completed 12 labors?,Perseus,Hercules,Theseus,Achilles,Option B
+Mythology,MYT19,What bird is associated with the Greek goddess Athena?,Owl,Eagle,Dove,Swan,Option A
+Mythology,MYT20,Who is the father of the Greek god Apollo?,Zeus,Poseidon,Hermes,Hades,Option A
+Current Affairs,CA01,Who is the current President of the United States?,Joe Biden,Donald Trump,Barack Obama,Kamala Harris,Option A
+Current Affairs,CA02,Which country hosted the COP28 climate summit?,UK,USA,United Arab Emirates,Brazil,Option C
+Current Affairs,CA03,Who became the first woman to win a Nobel Prize in 1903?,Marie Curie,Florence Nightingale,Rosalind Franklin,Ada Lovelace,Option A
+Current Affairs,CA04,What is the current capital city of India?,Mumbai,New Delhi,Bangalore,Kolkata,Option B
+Current Affairs,CA05,Which country is currently facing a humanitarian crisis in Gaza?,Israel,Palestine,Egypt,Syria,Option B
+Current Affairs,CA06,Who became the first woman vice president of the United States?,Kamala Harris,Hillary Clinton,Nancy Pelosi,Michelle Obama,Option A
+Current Affairs,CA07,What was the theme of World Health Day 2024?,Mental Health,Universal Health,Health for All,Healthy Lifestyle,Option A
+Current Affairs,CA08,Who won the 2023 Cricket World Cup?,England,Australia,India,New Zealand,Option C
+Current Affairs,CA09,Which country is planning to send humans to Mars by 2030?,China,USA,Russia,India,Option B
+Current Affairs,CA10,What is the name of the new AI chatbot developed by OpenAI?,ChatGPT,Siri,Alexa,Cortana,Option A
+Current Affairs,CA11,Which social media platform was banned in India in 2024?,TikTok,Instagram,Twitter,Facebook,Option A
+Current Affairs,CA12,Who became the Chancellor of Germany in 2021?,Angela Merkel,Olaf Scholz,Emmanuel Macron,Boris Johnson,Option B
+Current Affairs,CA13,Which country hosted the 2022 FIFA World Cup?,Qatar,Russia,USA,Brazil,Option A
+Current Affairs,CA14,Which company became the world's first trillion-dollar company in 2024?,Apple,Microsoft,Amazon,Alphabet,Option A
+Current Affairs,CA15,Who was the UN Secretary-General in 2024?,António Guterres,Ban Ki-moon,Kofi Annan,U Thant,Option A
+Current Affairs,CA16,Which country is the largest producer of electric vehicles?,China,USA,Germany,Japan,Option A
+Current Affairs,CA17,What is the name of the first successful human gene therapy trial in 2024?,GeneFuture,GeneSavior,LifeGene,GeneTech,Option B
+Current Affairs,CA18,Which country recently joined the European Union?,Turkey,Croatia,Serbia,North Macedonia,Option B
+Current Affairs,CA19,What is the name of the new climate agreement signed in 2024?,Earth Pact,Climate Change Treaty,Global Climate Accord,Green Earth Agreement,Option C
+Current Affairs,CA20,Which country launched its first space station module in 2024?,China,Russia,USA,India,Option A
+Pop Culture,POP1201,Who won the Best Actor Oscar in 2023?,Brendan Fraser,Austin Butler,Colin Farrell,Bill Nighy,A
+Pop Culture,POP1202,Which TV show broke streaming records in 2023?,Stranger Things,Wednesday,The Last of Us,House of the Dragon,C
+Pop Culture,POP1203,Who performed at the Super Bowl Halftime Show in 2023?,Rihanna,Beyoncé,Taylor Swift,Lady Gaga,A
+Pop Culture,POP1204,What is the highest-grossing film of all time as of 2023?,Avatar,Avengers: Endgame,Titanic,Spider-Man: No Way Home,A
+Pop Culture,POP1205,Which celebrity couple got married in Italy in 2023?,Kourtney Kardashian and Travis Barker,Sophie Turner and Joe Jonas,Ben Affleck and Jennifer Lopez,Tom Holland and Zendaya,A
+Pop Culture,POP1206,What is the title of Taylor Swift's 2023 tour?,Eras Tour,Red Tour,1989 Tour,Lover Tour,A
+Pop Culture,POP1207,Which animated movie won the Oscar for Best Animated Feature in 2023?,Pinocchio,Turning Red,Minions: The Rise of Gru,Puss in Boots: The Last Wish,A
+Pop Culture,POP1208,Which artist released the hit song 'Flowers' in 2023?,Miley Cyrus,Selena Gomez,Dua Lipa,Olivia Rodrigo,A
+Pop Culture,POP1209,What is the name of the new Harry Potter TV series announced in 2023?,Harry Potter: Reboot,Hogwarts Legacy,HBO's Harry Potter,Wizarding World Reimagined,C
+Pop Culture,POP1210,Who was TIME's Person of the Year in 2023?,Elon Musk,Taylor Swift,Joe Biden,Vladimir Zelensky,B
+Pop Culture,POP1211,Which movie won the Palme d'Or at the Cannes Film Festival in 2023?,Anatomy of a Fall,The Zone of Interest,Killers of the Flower Moon,La Chimera,A
+Pop Culture,POP1212,What is the name of the Barbie movie director released in 2023?,Greta Gerwig,Sofia Coppola,Penny Marshall,Patty Jenkins,A
+Pop Culture,POP1213,Who played Ken in the 2023 Barbie movie?,Ryan Gosling,Chris Evans,Henry Cavill,Chris Pine,A
+Pop Culture,POP1214,What is the title of Beyoncé's 2023 world tour?,Renaissance World Tour,Lemonade World Tour,Formation World Tour,Dangerously in Love Tour,A
+Pop Culture,POP1215,Which streaming platform aired 'The Bear' in 2023?,Netflix,Hulu,Amazon Prime,Disney+,B
+Pop Culture,POP1216,Who voiced Mario in the 2023 Super Mario Bros. Movie?,Chris Pratt,Jack Black,Seth Rogen,Charlie Day,A
+Pop Culture,POP1217,What is the subtitle of the 2023 Spider-Man animated movie?,Across the Spider-Verse,Beyond the Spider-Verse,Into the Spider-Verse,Through the Spider-Verse,A
+Pop Culture,POP1218,Which artist headlined Coachella in 2023?,Frank Ocean,BLACKPINK,Harry Styles,Bad Bunny,B
+Pop Culture,POP1219,What is the name of the fictional video game in 'The Last of Us' series?,The Turning,Endure and Survive,Survivor's Creed,Apocalypse Rising,A
+Pop Culture,POP1220,Who won the Grammy for Album of the Year in 2023?,Harry Styles,Lizzo,Adele,Beyoncé,A

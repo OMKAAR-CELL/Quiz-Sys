@@ -151,22 +151,22 @@ def check(opt):
         res=0   
     
 def color_button(p):
-    if p=='A':
+    if p=='Option A':
         opt1.configure(bg='red')
         opt2.configure(bg='#2eff70')
         opt3.configure(bg='#2eff70')
         opt4.configure(bg='#2eff70')
-    elif p=='B':
+    elif p=='Option B':
         opt1.configure(bg='#2eff70')
         opt2.configure(bg='red')
         opt3.configure(bg='#2eff70')
         opt4.configure(bg='#2eff70')
-    elif p=='C':
+    elif p=='Option C':
         opt1.configure(bg='#2eff70')
         opt2.configure(bg='#2eff70')
         opt3.configure(bg='red')
         opt4.configure(bg='#2eff70')
-    elif p=='D':
+    elif p=='Option D':
         opt1.configure(bg='#2eff70')
         opt2.configure(bg='#2eff70')
         opt3.configure(bg='#2eff70')
@@ -241,7 +241,7 @@ def restart():
 
     
 user_pass_data=pd.read_csv('users.csv')
-questions_data=pd.read_csv('question_content.csv')
+questions_data=pd.read_csv('krishna.csv')
 user_progress_data=pd.read_csv('user_progress.csv')
 # List of subjects for the quiz
 quiz_subjects = [
@@ -518,16 +518,16 @@ score_label.pack(anchor='e')
 optionframe=Frame(Question,bg="#E9EDF1")
 optionframe.pack(padx=(120,0),anchor='w',pady=(120,0))
 
-opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('A'),color_button('A')))
+opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option A'),color_button('Option A')))
 opt1.grid(row=0,column=0)
 
-opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('B'),color_button('B')))
+opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option B'),color_button('Option B')))
 opt2.grid(row=0,column=2,padx=(120,0))
 
-opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('C'),color_button('C')))
+opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option C'),color_button('Option C')))
 opt3.grid(row=1,column=0,pady=(45,0))
 
-opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('D'),color_button('D')))
+opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option D'),color_button('Option D')))
 opt4.grid(row=1,column=2,padx=(120,0),pady=(45,0))
 
 submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",
