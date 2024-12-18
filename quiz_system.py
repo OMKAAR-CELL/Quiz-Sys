@@ -197,7 +197,7 @@ def show_stats(): #Showing Statistics frame
     
 def bargraph_show():
     global bargraph
-    bargraph=Image.open('Images\Barchart.png')
+    bargraph=Image.open('Images/Barchart.png')
     bargraph = bargraph.resize((400, 400))
     bargraph = ImageTk.PhotoImage(bargraph)
     Barchart_Image.config(image=bargraph)
@@ -214,7 +214,7 @@ def exit():
     root.destroy()
 
 def restart():
-    global qno, score, section_question, res, username, globalid
+    global qno, score, section_question, res, username, globalid,optname,user_response
 
     # Reset all necessary global variables
     qno = 1
@@ -222,6 +222,8 @@ def restart():
     section_question = None
     res = None
     globalid = None
+    optname=None
+    user_response=pd.DataFrame(columns=['Response'])
 
     # Reset the score label and question display
     score_label.config(text=f"Score: {score}")
@@ -238,7 +240,113 @@ def restart():
 
     show_frame(Declar)
 
+def getting_option_name(df,no,str):
+    txt=df.loc[no,str]
+    txt=txt.replace(' ','')
+    option_name=df.loc[no,txt]
+    return option_name
 
+def option_name(label):
+    global optname 
+    optname=label
+
+def user_response_name(df,no,str):
+    txt=df.loc[no-1,str]
+    return txt
+    
+def adding_user_response():
+    global section_question,user_response,optname,qno  
+    user_response.loc[qno-1]=[user_response_name(section_question,qno,optname)]
+    
+def questionplate():
+    global section_question,user_response
+    correct_answer_1.configure(text=getting_option_name(section_question,0,'Correct_Option'))
+    correct_answer_2.configure(text=getting_option_name(section_question,1,'Correct_Option'))
+    correct_answer_3.configure(text=getting_option_name(section_question,2,'Correct_Option'))
+    correct_answer_4.configure(text=getting_option_name(section_question,3,'Correct_Option'))
+    correct_answer_5.configure(text=getting_option_name(section_question,4,'Correct_Option'))
+    correct_answer_6.configure(text=getting_option_name(section_question,5,'Correct_Option'))
+    correct_answer_7.configure(text=getting_option_name(section_question,6,'Correct_Option'))
+    correct_answer_8.configure(text=getting_option_name(section_question,7,'Correct_Option'))
+    correct_answer_9.configure(text=getting_option_name(section_question,8,'Correct_Option'))
+    correct_answer_10.configure(text=getting_option_name(section_question,9,'Correct_Option'))
+    
+    user_answer_1.configure(text=user_response.loc[0,'Response'])
+    user_answer_2.configure(text=user_response.loc[1,'Response'])
+    user_answer_3.configure(text=user_response.loc[2,'Response'])
+    user_answer_4.configure(text=user_response.loc[3,'Response'])
+    user_answer_5.configure(text=user_response.loc[4,'Response'])
+    user_answer_6.configure(text=user_response.loc[5,'Response'])
+    user_answer_7.configure(text=user_response.loc[6,'Response'])
+    user_answer_8.configure(text=user_response.loc[7,'Response'])
+    user_answer_9.configure(text=user_response.loc[8,'Response'])
+    user_answer_10.configure(text=user_response.loc[9,'Response'])
+    
+def color_wr():
+    if user_answer_1.cget('text')==correct_answer_1.cget('text'):
+        user_answer_1.configure(bg='#54f780')
+    else:
+        user_answer_1.configure(bg='#fa6446')
+        
+    if user_answer_2.cget('text')==correct_answer_2.cget('text'):
+        user_answer_2.configure(bg='#54f780')
+    else:
+        user_answer_2.configure(bg='#fa6446')
+        
+    if user_answer_3.cget('text')==correct_answer_3.cget('text'):
+        user_answer_3.configure(bg='#54f780')
+    else:
+        user_answer_3.configure(bg='#fa6446')
+        
+    if user_answer_4.cget('text')==correct_answer_4.cget('text'):
+        user_answer_4.configure(bg='#54f780')
+    else:
+        user_answer_4.configure(bg='#fa6446')
+        
+    if user_answer_5.cget('text')==correct_answer_5.cget('text'):
+        user_answer_5.configure(bg='#54f780')
+    else:
+        user_answer_5.configure(bg='#fa6446')
+    
+    if user_answer_6.cget('text')==correct_answer_6.cget('text'):
+        user_answer_6.configure(bg='#54f780')
+    else:
+        user_answer_6.configure(bg='#fa6446')
+        
+    if user_answer_7.cget('text')==correct_answer_7.cget('text'):
+        user_answer_7.configure(bg='#54f780')
+    else:
+        user_answer_7.configure(bg='#fa6446')
+        
+    if user_answer_8.cget('text')==correct_answer_8.cget('text'):
+        user_answer_8.configure(bg='#54f780')
+    else:
+        user_answer_8.configure(bg='#fa6446')
+        
+    if user_answer_9.cget('text')==correct_answer_9.cget('text'):
+        user_answer_9.configure(bg='#54f780')
+    else:
+        user_answer_9.configure(bg='#fa6446')
+        
+    if user_answer_10.cget('text')==correct_answer_10.cget('text'):
+        user_answer_10.configure(bg='#54f780')
+    else:
+        user_answer_10.configure(bg='#fa6446')
+  
+def boo():
+    global ch
+    ch=1
+    
+def check_none(choice_flag):
+    if choice_flag == 0:  # No option selected
+        messagebox.showwarning("No Option Selected", "Please choose an option before submitting.")
+        return False  # Stop execution
+    return True  # Proceed
+
+def restart_characterflag():
+    global ch
+    ch=0
+    
     
 user_pass_data=pd.read_csv('Data/users.csv')
 questions_data=pd.read_csv('Data/krishna.csv')
@@ -266,6 +374,9 @@ globalid=NONE
 score=0
 section_question=NONE
 res=NONE
+user_response=pd.DataFrame(columns=['Response'])
+optname=None
+ch=0
 
 pie=None
 bar=None
@@ -286,11 +397,12 @@ Signup = Frame(root, background="#E9EDF1")
 Declar = Frame(root, background="#E9EDF1")
 Question = Frame(root, background="#E9EDF1")
 Stats=Frame(root,background='#ffffff')
+Scorechart_frame=Frame(root,background='#E9EDF1')
 Barchart=Frame(root,background='#ffffff')
 SProgress=Frame(root,background="#E9EDF1")
 LinegraphFrame=Frame(root,background='#ffffff')
 
-for frame in (Welcome, Signup, Login,Declar,Question,Stats,Barchart,SProgress,LinegraphFrame):
+for frame in (Welcome, Signup, Login,Declar,Question,Stats,Scorechart_frame,Barchart,SProgress,LinegraphFrame):
     frame.grid(row=0, column=0, sticky="nsew")
 
 def show_frame(frame):
@@ -518,20 +630,20 @@ score_label.pack(anchor='e')
 optionframe=Frame(Question,bg="#E9EDF1")
 optionframe.pack(padx=(120,0),anchor='w',pady=(120,0))
 
-opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option A'),color_button('Option A')))
+opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option A'),color_button('Option A'),option_name('OptionA'),boo()))
 opt1.grid(row=0,column=0)
 
-opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option B'),color_button('Option B')))
+opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option B'),color_button('Option B'),option_name('OptionB'),boo()))
 opt2.grid(row=0,column=2,padx=(120,0))
 
-opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option C'),color_button('Option C')))
+opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option C'),color_button('Option C'),option_name('OptionC'),boo()))
 opt3.grid(row=1,column=0,pady=(45,0))
 
-opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option D'),color_button('Option D')))
+opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option D'),color_button('Option D'),option_name('OptionD'),boo()))
 opt4.grid(row=1,column=2,padx=(120,0),pady=(45,0))
 
 submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",
-                 command=lambda :(score_add(),increase_qno(),show_Questions_forcont()))
+                 command=lambda:(None if not check_none(ch) else (adding_user_response(), score_add(), increase_qno(), show_Questions_forcont(),restart_characterflag())))
 submitbtn.pack(anchor="s",pady=(50))
 
 
@@ -548,20 +660,90 @@ graph_frame.pack()
 piechart_label=Label(graph_frame,image=pie)
 piechart_label.grid(row=0,column=0,padx=(3,7))
 
+
 graphbtn_frame=Frame(graph_frame,bg="#ffffff")
 graphbtn_frame.grid(row=0,column=1)
 
+ScoreBoard_btn=Button(graphbtn_frame,text='View your Answers',font=(fon,14),command=lambda: (show_frame(Scorechart_frame),questionplate(),color_wr()))
+ScoreBoard_btn.grid(row=0,column=0,padx=(7,9),pady=(0,10))
+
 barbtn=Button(graphbtn_frame,text='View your highest in each subject',font=(fon,14),command=lambda :(bargraph_show(),show_frame(Barchart)))
-barbtn.grid(row=0,column=0,padx=(7,9),pady=(0,10))
+barbtn.grid(row=1,column=0,padx=(7,9),pady=(0,10))
 
 linebtn=Button(graphbtn_frame,text='View your progress in each subject',font=(fon,14),command=lambda :(show_frame(SProgress)))
-linebtn.grid(row=1,column=0,padx=(7,9),pady=(5,8))
+linebtn.grid(row=2,column=0,padx=(7,9),pady=(5,8))
 
 restartbtn=Button(graphbtn_frame,text='Back',font=(fon,14),command=lambda :restart())
-restartbtn.grid(row=2,column=0,padx=(7,9),pady=(5,8))
+restartbtn.grid(row=3,column=0,padx=(7,9),pady=(5,8))
 
 exitbtn=Button(graphbtn_frame,text='exit',font=(fon,14),command=lambda: exit())
-exitbtn.grid(row=3,column=0,padx=(7,9),pady=(5,8))
+exitbtn.grid(row=4,column=0,padx=(7,9),pady=(5,8))
+
+#Scorechart
+scorechart = Frame(Scorechart_frame, width=60)
+scorechart.pack(anchor='center', pady=(134, 0))
+
+# Question Number Label
+Question_number_label = Label(scorechart, text="Question number",width=14,font=(fon,15))
+Question_number_label.grid(row=0, column=0)
+
+# Question Numbers (1 to 10)
+for i in range(1, 11):
+    question_number = Label(scorechart, text=i, width=14, font=(fon, 15),bg='#E9EDF1')
+    question_number.grid(row=i, column=0) 
+
+# User Answer Label
+user_answer_label = Label(scorechart, text="Your Answer",width=18,font=(fon,15),bg='#E9EDF1')
+user_answer_label.grid(row=0, column=1) 
+
+user_answer_1 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_1.grid(row=1, column=1) 
+user_answer_2= Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_2.grid(row=2, column=1) 
+user_answer_3 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_3.grid(row=3, column=1) 
+user_answer_4 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_4.grid(row=4, column=1) 
+user_answer_5 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_5.grid(row=5, column=1) 
+user_answer_6 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_6.grid(row=6, column=1) 
+user_answer_7 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_7.grid(row=7, column=1) 
+user_answer_8 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_8.grid(row=8, column=1) 
+user_answer_9 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_9.grid(row=9, column=1) 
+user_answer_10 = Label(scorechart, text='abdracadraabr', width=18, font=(fon, 15))
+user_answer_10.grid(row=10, column=1) 
+
+
+Correct_answer_label = Label(scorechart, text="Correct Answer",width=18,font=(fon,15),bg='#E9EDF1')
+Correct_answer_label.grid(row=0, column=2) 
+
+correct_answer_1 = Label(scorechart, text='abdracadraabr', anchor='w',width=18, font=(fon, 15),bg='#54f780')
+correct_answer_1.grid(row=1, column=2) 
+correct_answer_2= Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_2.grid(row=2, column=2) 
+correct_answer_3 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_3.grid(row=3, column=2) 
+correct_answer_4 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_4.grid(row=4, column=2) 
+correct_answer_5 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_5.grid(row=5, column=2) 
+correct_answer_6 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_6.grid(row=6, column=2) 
+correct_answer_7 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_7.grid(row=7, column=2) 
+correct_answer_8 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_8.grid(row=8, column=2) 
+correct_answer_9 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_9.grid(row=9, column=2) 
+correct_answer_10 = Label(scorechart, text='abdracadraabr',anchor='w', width=18, font=(fon, 15),bg='#54f780')
+correct_answer_10.grid(row=10, column=2) 
+
+Cbackbtn=Button(scorechart,bg='blue',text="Back",command=lambda :show_frame(Stats))
+Cbackbtn.grid(row=11,column=1,pady=(5,8))
 
 
 
