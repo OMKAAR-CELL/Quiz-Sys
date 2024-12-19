@@ -392,6 +392,7 @@ root.title('QUIZ')
 
 # Frames
 Welcome = Frame(root, background="#E9EDF1")
+Credit_page=Frame(root,background='#E9EDF1')
 Login = Frame(root, background="#E9EDF1")
 Signup = Frame(root, background="#E9EDF1")
 Declar = Frame(root, background="#E9EDF1")
@@ -402,7 +403,7 @@ Barchart=Frame(root,background='#ffffff')
 SProgress=Frame(root,background="#E9EDF1")
 LinegraphFrame=Frame(root,background='#ffffff')
 
-for frame in (Welcome, Signup, Login,Declar,Question,Stats,Scorechart_frame,Barchart,SProgress,LinegraphFrame):
+for frame in (Welcome, Credit_page,Signup, Login,Declar,Question,Stats,Scorechart_frame,Barchart,SProgress,LinegraphFrame):
     frame.grid(row=0, column=0, sticky="nsew")
 
 def show_frame(frame):
@@ -426,11 +427,26 @@ play_btn = Button(
     width=15,
     height=2,
     bg="#D6DBDF",
-    command=lambda: show_frame(Signup),
+    command=lambda: show_frame(Signup)
 )
-play_btn.pack(pady=100)  # Centered below the label
+play_btn.pack(pady=(100,0))  
 
+credit_btn=Button(Welcome,
+    text="Credits",
+    font=(fon, 17),
+    width=15,
+    height=2,
+    bg="#D6DBDF",
+    command=lambda: show_frame(Credit_page))
+credit_btn.pack(pady=(56,0))  
 
+#Credit Page
+GUI_cred=Label(Credit_page,text="GUI: Omkaar",font=(fon,18))
+GUI_cred.pack(pady=(150,10))
+Backend_cred=Label(Credit_page,text="Backend: Omkaar & Krishna bansal",font=(fon,18))
+Backend_cred.pack(pady=(10,10))
+Datacollection_cred=Label(Credit_page,text="Data Collection: Krishna Bansal",font=(fon,18))
+Datacollection_cred.pack(pady=(10,10))
 
 # Sign Up Page
 signup_label = Label(
@@ -630,16 +646,16 @@ score_label.pack(anchor='e')
 optionframe=Frame(Question,bg="#E9EDF1")
 optionframe.pack(padx=(120,0),anchor='w',pady=(120,0))
 
-opt1=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option A'),color_button('Option A'),option_name('OptionA'),boo()))
+opt1=Button(optionframe,text="",anchor='w',font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option A'),color_button('Option A'),option_name('OptionA'),boo()))
 opt1.grid(row=0,column=0)
 
-opt2=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option B'),color_button('Option B'),option_name('OptionB'),boo()))
+opt2=Button(optionframe,text="",anchor='w',font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option B'),color_button('Option B'),option_name('OptionB'),boo()))
 opt2.grid(row=0,column=2,padx=(120,0))
 
-opt3=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option C'),color_button('Option C'),option_name('OptionC'),boo()))
+opt3=Button(optionframe,text="",anchor='w',font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option C'),color_button('Option C'),option_name('OptionC'),boo()))
 opt3.grid(row=1,column=0,pady=(45,0))
 
-opt4=Button(optionframe,text="",font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option D'),color_button('Option D'),option_name('OptionD'),boo()))
+opt4=Button(optionframe,text="",anchor='w',font=(fon,18),bg="#2eff70",width=17,command=lambda :(check('Option D'),color_button('Option D'),option_name('OptionD'),boo()))
 opt4.grid(row=1,column=2,padx=(120,0),pady=(45,0))
 
 submitbtn=Button(Question,text='Submit',font=(fon,20),width=17,bg="#cef522",
@@ -648,7 +664,7 @@ submitbtn.pack(anchor="s",pady=(50))
 
 
 #stats
-Stats_label=Label(Stats,text="",font=(fon,34),bg="#ffffff")
+Stats_label=Label(Stats,text="",font=(fon,20),bg="#ffffff")
 Stats_label.pack()
 
 Final_score_label=Label(Stats,text='score',font=(fon,24),bg="#ffffff")
